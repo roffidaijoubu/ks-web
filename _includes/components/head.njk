@@ -4,13 +4,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or metadata.title }}</title>
   <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   {% set css %}
     {% include "assets/css/inline.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
   {# Uncomment below if you want to include minified inline JavaScript #}
-  {# {% set js %}
+  {% set js %}
     {% include "assets/js/inline.js" %}
+    {% include "assets/js/mini-spa.js" %}
   {% endset %}
-  <script>{{ js | jsmin | safe }}</script> #}
+  <script>{{ js | jsmin | safe }}</script>
 </head>
